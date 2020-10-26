@@ -1,0 +1,12 @@
+.game-info {
+  border: 10px solid;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+  color: green;
+}
