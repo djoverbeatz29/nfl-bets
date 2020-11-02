@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     async function fetchPlayer() {
-      fetch('https://localhost:3001/players/1')
+      fetch('https://localhost:3001/users')
       .then(r=>r.json())
       .then(rez=>setPlayer(rez.data))
     }
