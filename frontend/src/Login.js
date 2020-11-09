@@ -1,5 +1,5 @@
 import React from 'react';
-import { loginSuccess } from '../actions/auth';
+import { loginSuccess } from './actions/auth';
 import { connect } from 'react-redux';
 
 class Login extends React.Component {

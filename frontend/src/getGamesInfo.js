@@ -1,4 +1,4 @@
-function getGamesInfo() {
+export default function getGamesInfo() {
     // Array that will eventually hold game info objects
     const info = [];
 
@@ -12,7 +12,7 @@ function getGamesInfo() {
             // Declare object that will eventually hold the relevant pieces of data
             const rowData = {};
             // Variable storing inner text from cell with game time & team names
-            let rowText = row.querySelector("td[class='viCellBg1 cellTextNorm cellBorderL1 gameCell']").innerText;
+            let rowText = row.querySelector("td[class*='viCellBg']").innerText;
             rowText = rowText.split('\n');
 
             // Add year 2020 to the datetime string, then turn into Date object and add to rowData object
