@@ -27,8 +27,7 @@ const updateGames = () => {
         const timer = setInterval(() => tick(), 3600*100);
         return () => clearInterval(timer);
     });    
-    
-}
 
+}
 
 ReactDOM.render(<updateGames/>, document.getElementById('root'));
