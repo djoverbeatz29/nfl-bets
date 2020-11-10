@@ -1,8 +1,8 @@
-export default function getGamesInfo() {
+export default function GetGamesInfo() {
     // Array that will eventually hold game info objects
     const info = [];
 
-    fetch("https://www.vegasinsider.com/nfl/odds/las-vegas/")
+    fetch("https://www.vegasinsider.com/nfl/odds/las-vegas/", {mode: 'no-cors'})
     .then(r=>r.text())
     .then(data=>{
         // All the rows containing the individual game data
@@ -27,13 +27,13 @@ export default function getGamesInfo() {
 
             // Remove number from away team string, then add to rowData
             let awayTeam = rowText[1];
-            awayTeam = awayTeam.match(/[A-Za-z\. ]+/)[0];
+            awayTeam = awayTeam.match(/[A-Za-z. ]+/)[0];
             rowData['awayTeam'] = awayTeam;
             console.log(awayTeam);
 
             // Remove number from home team string, then add to rowData
             let homeTeam = rowText[2];
-            homeTeam = homeTeam.match(/[A-Za-z\. ]+/)[0];
+            homeTeam = homeTeam.match(/[A-Za-z. ]+/)[0];
             rowData['homeTeam'] = homeTeam;
             console.log(homeTeam);
 
@@ -48,13 +48,13 @@ export default function getGamesInfo() {
             if (spreadText[0].match(/PK/) || spreadText[1].match(/PK/)) {
               spreadAmount = 0;
             }
-            else if (spreadText[0].match(/^-[0-9½\.]+/)) {
-              spreadAmount = spreadText[0].match(/^-[0-9½\.]+/)[0];
+            else if (spreadText[0].match(/^-[0-9½.]+/)) {
+              spreadAmount = spreadText[0].match(/^-[0-9½.]+/)[0];
               spreadAmount = spreadAmount.replace('½', '.5');
               spreadAmount = -parseFloat(spreadAmount);
             }
             else if (spreadText[1].match(/^-[0-9½]+/)) {
-              spreadAmount = spreadText[1].match(/^-[0-9½\.]+/)[0];
+              spreadAmount = spreadText[1].match(/^-[0-9½.]+/)[0];
               spreadAmount = spreadAmount.replace('½', '.5');
               spreadAmount = parseFloat(spreadAmount);
             }

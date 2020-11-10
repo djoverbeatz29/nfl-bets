@@ -1,14 +1,16 @@
 import React from 'react';
-import getGamesInfo from './getGamesInfo';
+import GetGamesInfo from './GetGamesInfo';
+import GameInfo from './components/GameInfo';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 function App() {
-  const games = getGamesInfo();
+  const games = GetGamesInfo();
   
   return (
     <BrowserRouter>
       <div className="App">
+        {games.map(game => <GameInfo game={game} />)}
       </div>
     </BrowserRouter>
   );
